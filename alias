@@ -1,0 +1,16 @@
+# Rails
+alias rk='rake'
+alias ra='rails'
+alias b='bundle'
+alias bi='bundle install'
+alias m='mate .'
+
+function mvd {
+  version=`print $1 | cut -d_ -f1`
+  rake db:migrate:down VERSION=$version
+}
+
+function mvu {
+  version=`print $1 | cut -d_ -f1`
+  rake db:migrate:up VERSION=$version
+}

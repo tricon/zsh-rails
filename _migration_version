@@ -1,0 +1,18 @@
+#compdef _migration_version migration_version
+
+typeset -A opt_args
+
+# Return potential migrations. This will return the full filename without the path.
+_version() {
+  declare -a version # Declare an array
+  # version=(`print -l db/migrate/*.rb(N:t) | cut -d_ -f1`)
+  version=(./db/migrate/*(N:t))
+  _wanted version expl 'version' compadd $version
+}
+
+local context state line expl
+local -A opt_args
+
+_arguments :version:_version :files:_files
+
+return 1

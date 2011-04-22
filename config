@@ -1,0 +1,4 @@
+# Zsh configuration
+
+# Compdefs
+compdef _migration_version mvd mvu # Tells our mvd and mvu commands to use _migration_version for autocompletion.
